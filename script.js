@@ -1,9 +1,17 @@
+const container = document.querySelector(".container");
+const dateContainer = document.querySelector(".date");
+const timeContainer = document.querySelector(".time");
+const languageSelector = document.querySelector(".language-selector");
+const NowDay = document.querySelector("#day");
+const NowMonth = document.querySelector("#month");
+const NowYear = document.querySelector("#year");
+const nowHuor = document.querySelector("#hour");
+const nowMin = document.querySelector("#minute");
+const nowSec = document.querySelector("#second");
+const dayName = document.querySelector("#day-text");
+const monthName = document.querySelector("#month-text");
 document.addEventListener("DOMContentLoaded", function () {
   // Class references
-  const container = document.querySelector(".container");
-  const dateContainer = document.querySelector(".date");
-  const timeContainer = document.querySelector(".time");
-  const languageSelector = document.querySelector(".language-selector");
 });
 
 function toggleDropdown() {
@@ -35,3 +43,124 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 //! my code
+/*
+const year = (year) => {
+  const now = new Date();
+
+  const locale = navigator.language;
+
+  year = new Intl.DateTimeFormat(locale, { year: "numeric" }).format(now);
+  NowYear.textContent = year;
+};
+year(NowYear);
+
+const month = (month) => {
+  const now = new Date();
+
+  const locale = navigator.language;
+
+  month = new Intl.DateTimeFormat(locale, { month: "2-digit" }).format(now);
+  NowMonth.textContent = month;
+};
+month(NowMonth);
+
+const day = (day) => {
+  const now = new Date();
+
+  const locale = navigator.language;
+
+  day = new Intl.DateTimeFormat(locale, { day: "2-digit" }).format(now);
+  NowDay.textContent = day;
+};
+day(NowDay);
+
+const hour = (hour) => {
+  const now = new Date();
+
+  const locale = navigator.language;
+
+  hour = new Intl.DateTimeFormat(locale, {
+    hour: "2-digit",
+    hour12: false,
+  }).format(now);
+  nowHuor.textContent = hour;
+};
+hour(nowHuor);
+
+const Min = (minute) => {
+  const now = new Date();
+
+  const locale = navigator.language;
+
+  minute = new Intl.DateTimeFormat(locale, { minute: "2-digit" }).format(now);
+  nowMin.textContent = minute;
+};
+Min(nowMin);
+
+const sec = (second) => {
+  const now = new Date();
+
+  const locale = navigator.language;
+
+  second = new Intl.DateTimeFormat(locale, { second: "2-digit" }).format(now);
+  nowSec.textContent = second;
+};
+sec(nowSec);
+
+const weekday = (weekday) => {
+  const now = new Date();
+
+  const locale = navigator.language;
+
+  weekday = new Intl.DateTimeFormat(locale, { weekday: "long" }).format(now);
+  dayName.textContent = weekday;
+};
+weekday(dayName);
+
+const monthNames = (monthsName) => {
+  const now = new Date();
+
+  const locale = navigator.language;
+
+  monthsName = new Intl.DateTimeFormat(locale, { month: "long" }).format(now);
+  monthName.textContent = monthsName;
+};
+monthNames(monthName);
+*/
+//! Clean Code ::
+
+const updateDateTime = () => {
+  const dateFormat = (option) => {
+    return new Intl.DateTimeFormat(locale, option).format(now);
+  };
+  const locale = navigator.language;
+  const now = new Date();
+  //! year num
+  const year = dateFormat({ year: "numeric" });
+  NowYear.textContent = year;
+  //! month num
+  const month = dateFormat({ month: "2-digit" });
+  NowMonth.textContent = month;
+  //! day num
+  const day = dateFormat({ day: "2-digit" });
+  NowDay.textContent = day;
+  //! huor num
+  const hour = dateFormat({
+    hour: "2-digit",
+    hour12: false,
+  });
+  nowHuor.textContent = hour;
+  //! weekDay
+  const weekday = dateFormat({ weekday: "long" });
+  dayName.textContent = weekday;
+  //! namesMonth
+  const monthsName = dateFormat({ month: "long" });
+  monthName.textContent = monthsName;
+  //! mins num
+  const minute = dateFormat({ minute: "2-digit" });
+  nowMin.textContent = minute;
+  //! sec num
+  const second = dateFormat({ second: "2-digit" });
+  nowSec.textContent = second;
+};
+updateDateTime();

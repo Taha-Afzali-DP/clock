@@ -60,9 +60,38 @@ body::before {
   -webkit-text-fill-color: transparent;
   padding: 12px 25px;
   border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(79, 76, 76, 0.2);
+}
+.date-text {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+  font-size: 1.4em;
+  letter-spacing: 1px;
+}
+
+.date-text span {
+  background: linear-gradient(45deg, #a8a8a8, #ffffff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  padding: 10px 20px;
+  border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
+@media (max-width: 768px) {
+  .date-text {
+    font-size: 1.4em;
+    flex-direction: column;
+    gap: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .date-text {
+    font-size: 1.2em;
+  }
+}
 .time {
   font-size: 3.5em;
   font-weight: bold;
