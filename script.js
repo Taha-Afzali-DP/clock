@@ -144,23 +144,35 @@ const updateDateTime = () => {
   //! day num
   const day = dateFormat({ day: "2-digit" });
   NowDay.textContent = day;
-  //! huor num
-  const hour = dateFormat({
-    hour: "2-digit",
-    hour12: false,
+  setInterval(() => {
+    //! huor num
+    // const hour = dateFormat({
+    //   hour: "2-digit",
+    //   hour12: false,
+    // });
+    const Time = new Date(new Date().getTime());
+    nowHuor.textContent = Time.getHours();
   });
-  nowHuor.textContent = hour;
   //! weekDay
   const weekday = dateFormat({ weekday: "long" });
   dayName.textContent = weekday;
   //! namesMonth
   const monthsName = dateFormat({ month: "long" });
   monthName.textContent = monthsName;
+
   //! mins num
-  const minute = dateFormat({ minute: "2-digit" });
-  nowMin.textContent = minute;
-  //! sec num
-  const second = dateFormat({ second: "2-digit" });
-  nowSec.textContent = second;
+  setInterval(() => {
+    const Time = new Date(new Date().getTime());
+    nowMin.textContent = Time.getMinutes();
+  }, 1000);
+  setInterval(() => {
+    const Time = new Date(new Date().getTime());
+
+    //! sec num
+    const second = Time.getSeconds();
+    // console.log(now);
+    nowSec.textContent = second;
+  }, 1000);
+  // console.log(Time.getHours(), Time.getMinutes(), Time.getSeconds());
 };
 updateDateTime();
