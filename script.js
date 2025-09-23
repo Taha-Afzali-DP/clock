@@ -59,9 +59,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
 const updateDateTime = () => {
   const now = new Date();
+  // const dateFormat = (option) => {
+  //   return new Intl.DateTimeFormat(locale, option).format(now);
+  // };
   const dateFormat = (option) => {
-    return new Intl.DateTimeFormat(locale, option).format(now);
+    return new Intl.DateTimeFormat(locale, { ...option, timeZone }).format(now);
   };
+
   //! year num
   const year = dateFormat({ year: "numeric" });
   NowYear.textContent = year;
@@ -72,14 +76,18 @@ const updateDateTime = () => {
   const day = dateFormat({ day: "2-digit" });
   NowDay.textContent = day;
   //! huor
-  setInterval(() => {
+
+  const hourTimer = () => {
     const Time = new Date();
     nowHuor.textContent = new Intl.DateTimeFormat(locale, {
       hour: "2-digit",
       hour12: false,
       timeZone,
     }).format(Time);
-  }, 1000);
+  };
+  hourTimer();
+  setInterval(hourTimer, 1000);
+
   //! weekDay
   const weekday = dateFormat({ weekday: "long" });
   dayName.textContent = weekday;
