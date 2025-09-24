@@ -162,7 +162,28 @@ body::before {
   -webkit-text-fill-color: transparent;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
+.search-input-container {
+  margin-bottom: 10px;
+}
 
+.search-input {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  font-size: 0.9em;
+  box-sizing: border-box;
+}
+
+.search-input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.language-dropdown option.hidden {
+  display: none;
+}
 /* Responsive design for smaller devices */
 @media (max-width: 768px) {
   .container {
